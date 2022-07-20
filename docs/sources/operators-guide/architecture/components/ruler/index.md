@@ -11,7 +11,6 @@ The ruler is an optional component that evaluates PromQL expressions defined in 
 Each tenant has a set of recording and alerting rules and can group those rules into namespaces.
 
 ## Operational modes
-
 The ruler supports two different rule evaluation modes:
 
 ### Internal
@@ -34,7 +33,7 @@ Configuration of the built-in querier and distributor uses their respective conf
 
 In this mode the ruler delegates rules evaluation to the query-frontend. When enabled, the ruler leverages all the query acceleration techniques employed by the query-frontend, such as [query sharding]({{< relref "../../query-sharding/index.md" >}}).
 To enable the remote operational mode, set the `-ruler.query-frontend.address` CLI flag or its respective YAML configuration parameter for the ruler.
-Communication between ruler and query-frontend is established over gRPC, so you can make use of client-side load balancing by prefixing the query-frontend address URL with `dns://`.
+Communication between ruler and query-frontend is established over gRPC, so you can make use of client-side load balancing by prefixing the query-frontend address URL with `dns:///`.
 
 ![Architecture of Grafana Mimir's ruler component in remote mode](ruler-remote.svg)
 
